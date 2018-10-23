@@ -22,7 +22,9 @@ router.get('/logout', ctrlMain.logout);
 
 router.post('/signup',ctrlUser.userCreate);
 router.post('/login',ctrlUser.userFind);
- 
+router.get('/borrower',function(req,res){
+    res.render('borrower');
+})
 // router.post('/lender',ctrlUser1.lend1);
 // router.post('/borrower',ctrlUser1.lend1);
 
