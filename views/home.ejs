@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>home</title>
+       <style>
+       body
+{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+ul
+{
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: #ccc;
+    margin: 0;
+    padding: 0;
+}
+ul li
+{
+    list-style: none;
+    position: relative;
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid #000;
+    float: left;
+    box-sizing: border-box;
+    transition: 0.5s;
+    text-align: center;
+    overflow: hidden;
+}
+ul li:nth-child(1)
+{
+  background-image:url("images/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+ul li:nth-child(2)
+{
+  background-image:url("images/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+ul li:nth-child(3)
+{
+  background-image:url("images/bg3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+ul li:nth-child(4)
+{
+  background-image:url("images/bg4.jpg");
+  background-size: cover;
+  background-position: right;
+}
+ul:hover li
+{
+    width: 10%;
+}
+ul li:hover
+{
+    width: 70%;
+}
+ul li .content
+{
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    box-sizing: border-box;
+    color: #fff;
+}
+ul li:hover .content
+{
+    bottom: 0;
+    transition: 0.2s;
+    transition-delay: 0.5s;
+    opacity: 1;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .qwe {
+    float: left;
+    text-align: right;
+  }
+       </style>
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+       
+    </head>
+    <body>
+        
+<div class="topnav">
+        <a href="/login">logout</a>
+        <a href="#about">About</a>
+        <a class="" href="/">Home</a>
+       
+        
+      </div>
+        <ul>
+            <li>
+                <div class="content">
+                    <h2><a href="yaarUdhaar">yaarUdhaar</a></h2>
+                
+                    <p>THIS PAGE WILL BE ABOUT YAAR UDHAR</p>
+                </div>
+            </li>
+            <li>
+                <div class="content">
+                    <h2><a href="home/budgetdude">BUDGET DUDE</a></h2>
+                    <p>THIS IS TO MANAGE YOUR BUDGET</p>
+                </div>
+            </li>
+            <li>
+                <div class="content">
+                    <h2><a href="moneybank">MONEYBANK</a></h2>
+
+                    <p>THIS PAGE CONTAINS INFO ABOUT MONEY BANK
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="content">
+                    <h2><a href="wallet">WALLET</a></h2>
+                    <p>THIS IS YOUR WALLET PAGE</p>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>

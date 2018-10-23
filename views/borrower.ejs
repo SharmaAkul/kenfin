@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Borrower</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="stylesheets/akul.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:4px;
+ left:2px;
+}
+
+.dropbtn {
+    padding: 22px 15px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    
+    z-index: 1;
+}
+
+.dropdown-content a {
+   
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: rgb(255, 255, 255);}
+
+.show {display: block;}
+</style>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="htttp://www.binarytheme.com"><h2 style="margin:4px">KenFin </h2></a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right"> 
+                    <li><a href="/"><h5>HOME</h5></a>
+                    </li>
+                    <li><a href="#about" ><h5 >ABOUT</h5></a>
+                    </li>
+                    <li onclick="myFunction()" class="dropbtn" style="color:#979494">NOTIFICATION
+                        <div id="myDropdown" class="dropdown-content">
+                                <a href="#home">Home</a>
+                            
+                            </div>
+                    </li>
+                    <li><a href="/logout"><h5 >LOG OUT</h5></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<hr>
+    <!-- Services Section-->
+    <section class="for-full-back color-white" id="services">
+        <div class="container">
+
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>OUR SERVICES</h1>
+                    
+                </div>
+
+            </div>
+            
+            <div class="row  space-pad">
+                <div class="col-md-3 ">
+
+                    <div class="about-div text-center ">
+
+                        <i class="fa fa-credit-card fa-4x color-blue"></i>
+
+
+                        <h3>What We Have ? </h3>
+                       <p>
+                           I time of need o his platform your friend can help
+                           you financially.by lending you some money.
+                       </p>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6 ">
+                    <p class="text-center">
+                    This is the platform that help you in hour of need.
+                    here you can ask your friend for money in personal.
+                    As we all know a friend in need is a friend in deed.
+                        </p>
+
+                    
+
+                </div>
+                
+                <div class="col-md-3 ">
+                    <div class="about-div text-center">
+                          <i class="fa fa-envelope-o fa-4x color-blue"></i>
+                        <h3>What We Deliver ? </h3>
+                         <p>
+                           we here provide you with trust, friendship and 
+                           the money you need at some time
+                       </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+     <!--End Services Section-->
+
+    <!-- ask for money Section -->
+
+    <section class="for-full-back color-light " id="free-text" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1> Ask A Friend</h1>
+                </div>
+            </div>
+
+            <div class="row text-center space-pad">
+                <div class="col-md-4 ">
+                    <div class="free-div">
+                       <a href="#money"> <h3>Ask For Money</h3></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    
+                </div>
+                <div class="col-md-4 ">
+                    <div class="free-div">
+                         <a href="#contacts"> <h3>Review A Lender</h3></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <!--End ask for money Section -->
+
+    <!-- Contact Section -->
+    <div id="money">
+    <section class="for-full-back color-white " id="contact" >
+       
+        <div class="container" >
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 >Ask For Money</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <h2>Borrow money from friend</h2>
+                    <p>
+                        This is the way to connect with friends and get some financial help
+                        at the time of need.
+                       
+                    </p>
+                    <form method="POST" action="/borrower">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required="required" placeholder="Name/Email" name="email">
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                        <input type="text" class="form-control" required="required" placeholder="Mobile Number" name="mobile_number">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" required="required" name="message" class="form-control" rows="3" placeholder="Message"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default">Send Request</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+    <!-- end of add contact section-->
+    <div id="contacts"></div>
+    <section class="for-full-back color-light " id="free-text">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 >Review</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                 
+                    <form action="/borrower" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required="required" placeholder="Name/Email" name="email">
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="Review" id="message" required="required" class="form-control" name="review" rows="3" placeholder="review"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div style="padding-left:15px">
+                            <fieldset class="rating">                       
+                                <legend>Rate Your Friend:</legend>
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                            </fieldset> 
+                            </div>                                                                       
+                        </div>
+                        <div class="row" style="padding:15px;">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">Submit Review</button>
+                             </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- end of add contact section-->
+
+     <!-- begin of add review section-->          
+
+     
+     <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+        
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="javascripts/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="javascripts/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS --> 
+    <script src="javascripts/custom.js"></script>
+
+</body>
+</html>
