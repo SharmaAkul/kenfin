@@ -40,13 +40,13 @@ const moneybank= function(req, res){
 };
 
 const lender= function(req, res){
-  if(req.session.user){
-  const noti = trans.getnotifications(req,res);
-  res.render('lender',{title:'kenfin',notifications:10,notirecs:noti});  
-}
-  else{
+  if(req.session.user)
+  // const noti = trans.getnotifications(req,res);
+  res.render('lender', { title: 'kenfin' })
+
+  else
   res.redirect('/login');
-  }  
+
  };
 //  res.render('lender', { title: 'kenfin' })
 

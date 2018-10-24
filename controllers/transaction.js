@@ -2,25 +2,27 @@ const mongoose =require('mongoose');
 const sendMsg = require('aws-sns-sms');
 
 const transaction=mongoose.model('transaction');
-// const lend1 =function(req,res){
-//     transaction.create({
-//         email:req.body.email,
-//         mobile_number:req.body.mobile_number,
-//         message:req.body.message,
-//     },(err,transaction) =>{
-//         if(err){
-//             res
-//                 .status(400)
-//                 .json(err);
-//         }else{
-//           //  const data={transaction};
-//             res
-//                 .redirect('/');
-//                 return;
-//         }
+
+const lend1 =function(req,res){
+    
+    transaction.create({
+        email:req.body.email,
+        mobile_number:req.body.mobile_number,
+        message:req.body.message
+    },(err,transaction) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+          //  const data={transaction};
+            res
+                .redirect('/');
+                return;
+        }
         
-//     });
-// };
+    });
+};
 
 /*
 const getnotifications = function(req,res){
@@ -50,7 +52,7 @@ const borrower=(req,res)=>{
         region: 'us-east-1'
         };
         let msg = {
-          "message": req.body.message,
+          "message": req.body.email+" wants "+req.body.message+" amount at "+req.body.mobile_number ,
           "sender": "Prabal",
           "phoneNumber": "+91"+req.body.mobile_number // phoneNumber along with country code
         };
@@ -76,12 +78,51 @@ const borrower=(req,res)=>{
         });
         //   console.log(x);
         })
+        
     //     .catch(err => {
     //       console.log(err);
     //     });  
     //   res.render('home');
 }
-
+const lender1=(req,res)=>{
+    let awsConfig = {
+        accessKeyId: 'AKIAJTTLSA36GASEHT6A',
+        secretAccessKey: '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',
+        region: 'us-east-1'
+        };
+        let msg = {
+          "message": req.body.email+" is ready to give "+req.body.message+" amount at "+req.body.mobile_number ,
+          "sender": "Prabal",
+          "phoneNumber": "+91"+req.body.mobile_number // phoneNumber along with country code
+        };
+        sendMsg(awsConfig, msg).then(data => {
+            // res.redirect('/borrower');
+          console.log("Message sent");
+          transaction.create({
+            email:req.body.email,
+            mobile_number:req.body.mobile_number,
+            message:req.body.message,
+        },(err,transaction) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+              //  const data={transaction};
+                res
+                    .redirect('/');
+                    // return;
+            }
+            
+        });
+        //   console.log(x);
+        })
+        
+    //     .catch(err => {
+    //       console.log(err);
+    //     });  
+    //   res.render('home');
+}
 
 // ('/borrower', (req, res) => {
 //  //let sendMsg = require('aws-sns-sms');
@@ -106,9 +147,10 @@ const borrower=(req,res)=>{
 // });
 
 module.exports={
-    // lend1,
+    lend1,
     // getnotifications,
-    borrower
+    borrower,
+    lender1
 }
 
 /*,(err,user) =>{
