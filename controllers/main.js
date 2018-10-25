@@ -37,6 +37,8 @@ const budgetdude= function(req, res){
 const moneybank= function(req, res){
   if(req.session.user)
   res.render('moneybank', { title: 'kenfin' })
+  else
+  res.redirect('/login');
 };
 
 const lender= function(req, res){
