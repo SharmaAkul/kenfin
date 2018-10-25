@@ -47,8 +47,8 @@ const getnotifications = function(req,res){
 // var x= otpGenerator.generate(6, { upperCase: false, specialChars: false ,alphabets: false }); 
 const borrower=(req,res)=>{
     let awsConfig = {
-        accessKeyId: 'AKIAJTTLSA36GASEHT6A',
-        secretAccessKey: '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',
+        accessKeyId: 'AKIAI7VLDTHASIPLCLIQ',
+        secretAccessKey: '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',
         region: 'us-east-1'
         };
         let msg = {
@@ -86,8 +86,8 @@ const borrower=(req,res)=>{
 }
 const lender1=(req,res)=>{
     let awsConfig = {
-        accessKeyId: 'AKIAJTTLSA36GASEHT6A',
-        secretAccessKey: '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',
+        accessKeyId: 'AKIAI7VLDTHASIPLCLIQ',
+        secretAccessKey: '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',
         region: 'us-east-1'
         };
         let msg = {
