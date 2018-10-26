@@ -6,6 +6,7 @@ const transaction=mongoose.model('transaction');
 const lend1 =function(req,res){
     
     transaction.create({
+        name:req.body.name,
         email:req.body.email,
         mobile_number:req.body.mobile_number,
         message:req.body.message
@@ -52,7 +53,7 @@ const borrower=(req,res)=>{
         region: 'us-east-1'
         };
         let msg = {
-          "message": req.body.email+" wants "+req.body.message+" amount at "+req.body.mobile_number ,
+          "message": req.body.name+" wants "+req.body.message+" amount from you "+"("+req.body.mobile_number+")",
           "sender": "Prabal",
           "phoneNumber": "+91"+req.body.mobile_number // phoneNumber along with country code
         };
@@ -91,7 +92,7 @@ const lender1=(req,res)=>{
         region: 'us-east-1'
         };
         let msg = {
-          "message": req.body.email+" is ready to give "+req.body.message+" amount at "+req.body.mobile_number ,
+          "message": "I ,"+req.body.name+" is ready to give "+req.body.message+" amount to "+req.body.name +" ("+req.body.mobile_number+" )" ,
           "sender": "Prabal",
           "phoneNumber": "+91"+req.body.mobile_number // phoneNumber along with country code
         };
